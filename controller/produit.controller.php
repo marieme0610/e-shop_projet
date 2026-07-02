@@ -7,7 +7,8 @@ function enregistrerProduit():void{
     do {
     $tabErreurs = [];    
     $libelle = saisie("Entrer le libelle :\n");  
-    isEmpty($libelle,$tabErreurs,"champ obligatoire");
+    isEmpty($libelle,$tabErreurs,"champ obligatoire\n");
+    isUnique($libelle,$produits,$tabErreurs,"Ceci existe deja !\n");
     $prix = saisie("Entrer le prix du produit\n");
     isEmpty($prix,$tabErreurs,"champ obligatoire","prix");
     isPositif($prix,$tabErreurs,"Le prix doit etre positif\n","prix");

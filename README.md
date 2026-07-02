@@ -23,4 +23,4 @@ Mes fonctions :
 --fonction verification reference dans le tableau produits(produit.model)(ok)
 --fonction recuperation index produit(produit.model)(ok)
 --fonction supprimer(produit.model)(ok)
---fonction lister produits(produit.view)
+--fonction lister produits(produit.view)(ok)
