@@ -7,5 +7,6 @@ require (__DIR__ . "/view/index.php");
 
 
 // enregistrerProduit();
-archivageProduit()
+archivageProduit();
+listerProduit();
 ?>
