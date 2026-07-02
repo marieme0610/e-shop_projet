@@ -6,5 +6,6 @@ require (__DIR__ . "/controller/index.php");
 require (__DIR__ . "/view/index.php");
 
 
-enregistrerProduit();
+// enregistrerProduit();
+archivageProduit()
 ?>
