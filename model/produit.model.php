@@ -5,6 +5,8 @@ $produits =
     ['reference' => 'REF002','libelle' => 'parfum','prix' => 9000,'quantite' => 70]
 ];
 
+$produitsArchives = [];
+
 
 function getLenghtProduit(array $produits):int{
     $lenght = count($produits) +1; 
@@ -25,8 +27,7 @@ function verifieReferenceDansProduit(array $produits,string $ref):int{
     return -1; 
 } 
 
-function supprimerProduitPourArchive(int $indexProduit, array &$produits):array{
-    $produitsArchives = [];
+function supprimerProduitPourArchive(int $indexProduit, array &$produits,array &$produitsArchives):array{
     $produitsArchives = array_splice($produits,$indexProduit,1);
     return $produitsArchives;
 }

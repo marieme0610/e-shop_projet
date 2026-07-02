@@ -31,6 +31,7 @@ function enregistrerProduit():void{
 
 function archivageProduit(){
 global $produits;
+global $produitsArchives;
 
 do {
 $tabErreurs = [];    
@@ -39,8 +40,14 @@ isEmpty($reference,$tabErreurs,"champ obligatoire","prix");
 showErrors($tabErreurs);
 } while (!empty($tabErreurs));
 $verifieReferenceDansProduit = verifieReferenceDansProduit($produits,$reference,'reference');
-$produitsArchives = supprimerProduitPourArchive($verifieReferenceDansProduit,$produits);
+supprimerProduitPourArchive($verifieReferenceDansProduit,$produits,$produitsArchives);
 var_dump($produitsArchives);
+}
+
+function listerProduit(){
+global $produits,$produitsArchives;
+listeProduit($produitsArchives);
+
 }
 
 ?>
