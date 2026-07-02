@@ -1,12 +1,12 @@
 <?php
 
 
-function enregistrerProduit(){
+function enregistrerProduit():void{
     global $produits;
 
     do {
     $tabErreurs = [];    
-    $libelle = saisie("Entrer votre nom :\n");  
+    $libelle = saisie("Entrer le libelle :\n");  
     isEmpty($libelle,$tabErreurs,"champ obligatoire");
     $prix = saisie("Entrer le prix du produit\n");
     isEmpty($prix,$tabErreurs,"champ obligatoire","prix");
@@ -27,11 +27,20 @@ function enregistrerProduit(){
 
     ];
     addNewProduit($produits,$newProduit);
-    var_dump($produits);
-
-
 }
 
+function archivageProduit(){
+global $produits;
 
+do {
+$tabErreurs = [];    
+$reference = saisie("Entrer la reference du produit a archivé :\n");
+isEmpty($reference,$tabErreurs,"champ obligatoire","prix");
+showErrors($tabErreurs);
+} while (!empty($tabErreurs));
+$verifieReferenceDansProduit = verifieReferenceDansProduit($produits,$reference,'reference');
+$produitsArchives = supprimerProduitPourArchive($verifieReferenceDansProduit,$produits);
+var_dump($produitsArchives);
+}
 
 ?>

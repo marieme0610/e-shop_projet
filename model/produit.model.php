@@ -1,8 +1,8 @@
 <?php
 $produits =
 [
-    ['ref' => 'REF001','libelle' => 'sac','prix' => 3500,'quantite' => 500],
-    ['ref' => 'REF002','libelle' => 'parfum','prix' => 9000,'quantite' => 70]
+    ['reference' => 'REF001','libelle' => 'sac','prix' => 3500,'quantite' => 500],
+    ['reference' => 'REF002','libelle' => 'parfum','prix' => 9000,'quantite' => 70]
 ];
 
 
@@ -14,5 +14,20 @@ function getLenghtProduit(array $produits):int{
 function addNewProduit(array &$produits ,array $newProduit):array{
   return  $produits[]=$newProduit;
 }
-var_dump($produits)
+
+function verifieReferenceDansProduit(array $produits,string $ref):int{
+    foreach ($produits as $indexProd => $produit) {
+        if($produit['reference'] == $ref){
+             return $indexProd;
+        }
+    }
+    
+    return -1; 
+} 
+
+function supprimerProduitPourArchive(int $indexProduit, array &$produits):array{
+    $produitsArchives = [];
+    $produitsArchives = array_splice($produits,$indexProduit,1);
+    return $produitsArchives;
+}
 ?>
